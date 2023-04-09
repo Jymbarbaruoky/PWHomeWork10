@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pwhomework10"
+version = "0.1.0"
+description = ""
+authors = ["Jymbarbaruoky <116517553+Jymbarbaruoky@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.7"
+psycopg2 = "^2.9.5"
+scrapy = "^2.8.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

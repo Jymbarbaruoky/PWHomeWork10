@@ -1,0 +1,36 @@
+{% extends "quotes_app/base.html" %}
+
+{% block title %}Quotes{% endblock %}
+
+{% block content %}
+<div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <ul class="list-group quote-list">
+                {% for quote in page_obj %}
+                <li class="list-group-item quote-item">
+                    <div class="quote-text"><i>“{{ quote.quote }}”</i></div>
+                    <div class="quote-author">by
+                        <a href="{% url 'quotes_app:author' quote.author %}"><b>{{ quote.author }}</b></a>
+                    </div>
+                    <div class="quote-tags">
+                        <small>Tags:</small>
+                        {% for tag in quote.tags.all %}
+                        <span class="tag-name">{{ tag.name }}</span>
+                        {% endfor %}
+                    </div>
+                </li>
+                {% empty %}
+                <li class="list-group-item">No quotes found.</li>
+                {% endfor %}
+            </ul>
+
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+{% endblock %}
